@@ -22,4 +22,5 @@ Route::view('/', 'home')->name('home');
 //api
 Route::apiResource('/api','App\Http\Controllers\TrafficController');
 Route::post('/api','App\Http\Controllers\TrafficController@store')->name('api');
-Route::post('/atc/show','App\Http\Controllers\TrafficController@show')->name('traffic.show');
+Route::get('/show/{id}','App\Http\Controllers\TrafficController@show')->name('show');
+Route::patch('/update/{traffic}','App\Http\Controllers\TrafficController@update')->name('update');
