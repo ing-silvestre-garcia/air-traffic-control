@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;    
+use App\Http\Controllers\TrafficController;  
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//home
+Route::view('/', 'home')->name('home');
+
+
+//api
+Route::apiResource('/api','App\Http\Controllers\TrafficController');
+Route::post('/api','App\Http\Controllers\TrafficController@store')->name('api');
+Route::post('/atc/show','App\Http\Controllers\TrafficController@show')->name('traffic.show');
