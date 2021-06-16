@@ -67,12 +67,11 @@ class TrafficController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Traffic::update([
+        Traffic::whereId($id)->update([
             'type' => request('type'),
             'size' => request('size'),
-            'date_created' => date('Y-m-d'),
         ]);
-        return $request;
+        return redirect()->route('api');
     }
 
     /**
@@ -83,10 +82,8 @@ class TrafficController extends Controller
      */
     public function destroy($id)
     {
-        $traffic = Traffic::where('id', $id)->delete();
+        $traffic = Traffic::whereId($id)->delete();
        
-        return view('show', [
-            'traffic' => $traffic
-        ]);
+        return view('api');
     }
 }
