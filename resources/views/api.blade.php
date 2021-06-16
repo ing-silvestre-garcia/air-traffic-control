@@ -40,7 +40,7 @@
 				<td> {{ $trafficItem->size }} </td>	
 				<td> {{ $trafficItem->date_created }} </td>	
 				<td> <a href="{{ route ('show', $trafficItem->id) }}"> edit </a> </td>	
-				
+				<td> <a href="{{ route ('delete', $trafficItem->id) }}"> delete </a> </td>
 			</tr>
 		@empty
 			No records
