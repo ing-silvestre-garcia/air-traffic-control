@@ -23,4 +23,6 @@ Route::view('/', 'home')->name('home');
 Route::apiResource('/api','App\Http\Controllers\TrafficController');
 Route::post('/api','App\Http\Controllers\TrafficController@store')->name('api');
 Route::get('/show/{id}','App\Http\Controllers\TrafficController@show')->name('show');
-Route::patch('/update/{traffic}','App\Http\Controllers\TrafficController@update')->name('update');
+Route::patch('/update/{id}','App\Http\Controllers\TrafficController@update')->name('update');
+Route::get('/delete/{id}','App\Http\Controllers\TrafficController@show')->name('delete');
+Route::patch('/destroy/{id}','App\Http\Controllers\TrafficController@destroy')->name('destroy');
